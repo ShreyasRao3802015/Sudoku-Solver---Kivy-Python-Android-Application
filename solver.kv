@@ -1,0 +1,799 @@
+WindowManager:
+    Menu:
+    Solver:
+    Htps:
+    Suggestion:
+
+<Suggestion>:
+    name: 'Suggestion'
+    FloatLayout:
+        Label:
+            text:'Suggestions?'
+            color: 0.3656,0.841,1,1
+            font_size:self.width/10
+            pos_hint:{'x':-0.2,'y':0.35}
+
+        Button:
+            font_size : root.width/20
+            text: 'Home'
+            color: 0.3656,0.841,1,1
+            background_color: 1,1,1,1
+            size_hint: 0.25,0.08
+            pos_hint: {'x':0.7, 'y':0.8}
+            on_release:
+                app.root.current = 'menu'
+                root.manager.transition.direction = 'right'
+
+        ScrollView:
+            pos_hint:{'x':0.05,'y':-0.4}
+            Label:
+                text:'Any suggestions are gladly welcome!\n\nContact :\nshreyas.rao380@gmail.com\n7734848262'
+                font_size : self.width/15
+                text_size : self.width,None
+                size_hint_y: None
+                height: self.texture_size[1]
+
+
+<Htps>:
+    name: 'Htps'
+    FloatLayout:
+        Label:
+            text:'How to play \nSudoku?'
+            color: 0.3656,0.841,1,1
+            font_size:self.width/10
+            pos_hint:{'x':-0.2,'y':0.35}
+
+        ScrollView:
+
+            pos_hint:{'x':0.05,'y':-0.3}
+            Label:
+                text:'->Sudoku is played on a grid of 9 x 9 spaces.\n\n->Within the rows and columns are 9 “squares” (made up of 3 x 3 spaces).\n\n-> Each row, column and square (9 spaces each) needs to be filled out with the numbers 1-9, without repeating any numbers within the row, column or square.'
+                font_size : self.width/15
+                text_size : self.width*0.9,None
+                size_hint_y: None
+                height: self.texture_size[1]
+
+        Button:
+            font_size : root.width/20
+            text: 'Home'
+            color: 0.3656,0.841,1,1
+            background_color: 1,1,1,1
+            size_hint: 0.25,0.1
+            pos_hint: {'x':0.7, 'y':0.8}
+            on_release:
+                app.root.current = 'menu'
+                root.manager.transition.direction = 'right'
+
+
+
+
+<invalid_popup>:
+    popup_close: popup_close
+    Label:
+        text: "Invalid Input!!"
+        font_size: root.width/10
+        size_hint:0.3,0.3
+        pos_hint: { 'x':0.35, 'top': 1}
+
+    Button:
+        id: popup_close
+        text: 'Close'
+        font_size: root.width/10
+        size_hint:0.3,0.3
+        pos_hint: { 'x':0.35, 'y': 0}
+
+
+
+<Menu>:
+    name: 'menu'
+
+    Label:
+        text: "Sudoku Solver"
+        color: 1,0,1,1
+        font_size: root.width/10
+        size_hint:1,0.1
+        pos_hint: { 'x':0, 'top': 1}
+
+    Button:
+        text: "Let's Start!"
+        color: 1,1,0,1
+        font_size: root.width/10
+        size_hint:0.8,0.1
+        background_color: 0,0,0,1
+        pos_hint: { 'x':0.1, 'y': 0.6}
+        on_release:
+            app.root.current = 'solver'
+            root.manager.transition.direction = 'left'
+
+
+    Button:
+        text: "How to play \n Sudoku?"
+        color: 1,1,0,1
+        font_size: self.width/10
+        size_hint:0.8,0.15
+        background_color: 0,0,0,1
+        pos_hint: { 'x':0.1, 'y': 0.4}
+        on_release:
+            app.root.current = 'Htps'
+            root.manager.transition.direction = 'left'
+
+    Button:
+        text: "Suggestions?"
+        color: 1,1,0,1
+        font_size: self.width/10
+        size_hint:0.8,0.15
+        background_color: 0,0,0,1
+
+        pos_hint: { 'x':0.1, 'y': 0.2}
+        on_release:
+            app.root.current = 'Suggestion'
+            root.manager.transition.direction = 'left'
+
+<Solver>:
+    name: 'solver'
+    a00: a00
+    a10: a10
+    a20: a20
+    a30: a30
+    a40: a40
+    a50: a50
+    a60: a60
+    a70: a70
+    a80: a80
+
+    a01: a01
+    a11: a11
+    a21: a21
+    a31: a31
+    a41: a41
+    a51: a51
+    a61: a61
+    a71: a71
+    a81: a81
+
+    a02: a02
+    a12: a12
+    a22: a22
+    a32: a32
+    a42: a42
+    a52: a52
+    a62: a62
+    a72: a72
+    a82: a82
+
+    a03: a03
+    a13: a13
+    a23: a23
+    a33: a33
+    a43: a43
+    a53: a53
+    a63: a63
+    a73: a73
+    a83: a83
+
+    a04: a04
+    a14: a14
+    a24: a24
+    a34: a34
+    a44: a44
+    a54: a54
+    a64: a64
+    a74: a74
+    a84: a84
+
+    a05: a05
+    a15: a15
+    a25: a25
+    a35: a35
+    a45: a45
+    a55: a55
+    a65: a65
+    a75: a75
+    a85: a85
+
+    a06: a06
+    a16: a16
+    a26: a26
+    a36: a36
+    a46: a46
+    a56: a56
+    a66: a66
+    a76: a76
+    a86: a86
+
+    a07: a07
+    a17: a17
+    a27: a27
+    a37: a37
+    a47: a47
+    a57: a57
+    a67: a67
+    a77: a77
+    a87: a87
+
+    a08: a08
+    a18: a18
+    a28: a28
+    a38: a38
+    a48: a48
+    a58: a58
+    a68: a68
+    a78: a78
+    a88: a88
+
+
+    FloatLayout:
+
+        canvas:
+            Color:
+                rgba: 0.3,0.05,0.067,1
+            Rectangle:
+
+                size : root.width/40, (root.height*9)/10
+                pos : 0,root.height/10
+
+            Rectangle:
+
+                size : root.width/40, (root.height*9)/10
+                pos : ((root.width/40)+((root.width*3)/10)),root.height/10
+
+            Rectangle:
+
+                size : root.width/40, (root.height*9)/10
+                pos : ((root.width/20)+((root.width*6)/10)),root.height/10
+
+            Rectangle:
+
+                size : root.width/40, (root.height*9)/10
+                pos : (((root.width/40)*3)+((root.width*9)/10)),root.height/10
+
+            Rectangle:
+
+                size : root.width, root.height/44.4444
+                pos : 0, root.height/10
+
+            Rectangle:
+
+                size : root.width, root.height/44.4444
+                pos : 0, root.height/10 + (((root.height*3)/10) - (0.3333*(root.height/44.4444)) )
+
+            Rectangle:
+
+                size : root.width, root.height/44.4444
+                pos : 0, root.height/10 + ((2*((root.height*3)/10)) - (0.6666*(root.height/44.4444)))
+
+            Rectangle:
+
+                size : root.width, root.height/44.4444
+                pos : 0, root.height/10 + 3*((root.height*3)/10)- root.height/44.4444
+
+        TextInput:
+            id: a00
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a10
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a20
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a30
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a40
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a50
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a60
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a70
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a80
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.025 , 'y': (0.1 + 0.0225) }
+
+
+        TextInput:
+            id: a01
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a11
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a21
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a31
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a41
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a51
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a61
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a71
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a81
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.125 , 'y': (0.1 + 0.0225) }
+
+
+        TextInput:
+            id: a02
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a12
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a22
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a32
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a42
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a52
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a62
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a72
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a82
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.225 , 'y': (0.1 + 0.0225) }
+
+
+
+        TextInput:
+            id: a03
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a13
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a23
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a33
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a43
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a53
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a63
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a73
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a83
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.35 , 'y': (0.1 + 0.0225) }
+
+
+        TextInput:
+            id: a04
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a14
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a24
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a34
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a44
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a54
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a64
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a74
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a84
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.45 , 'y': (0.1 + 0.0225) }
+
+        TextInput:
+            id: a05
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a15
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a25
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a35
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a45
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a55
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a65
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a75
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a85
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.55 , 'y': (0.1 + 0.0225) }
+
+
+
+        TextInput:
+            id: a06
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a16
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a26
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a36
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a46
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a56
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a66
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a76
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a86
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.675 , 'y': (0.1 + 0.0225) }
+
+
+        TextInput:
+            id: a07
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a17
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a27
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a37
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a47
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a57
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a67
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a77
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a87
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.775 , 'y': (0.1 + 0.0225) }
+
+
+        TextInput:
+            id: a08
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + (0.0225*3) + (0.09*8)) }
+
+        TextInput:
+            id: a18
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + (0.0225*3) + (0.09*7)) }
+
+        TextInput:
+            id: a28
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + (0.0225*3) + (0.09*6)) }
+
+        TextInput:
+            id: a38
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + (0.0225*2) + (0.09*5)) }
+
+        TextInput:
+            id: a48
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + (0.0225*2) + (0.09*4)) }
+
+        TextInput:
+            id: a58
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + (0.0225*2) + (0.09*3)) }
+
+        TextInput:
+            id: a68
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + 0.0225 + (0.09*2)) }
+
+        TextInput:
+            id: a78
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + 0.0225 + 0.09) }
+
+        TextInput:
+            id: a88
+            font_size: root.width/20
+            size_hint: 0.1, 0.09
+            pos_hint: {'x':0.875 , 'y': (0.1 + 0.0225) }
+
+
+        Button:
+            id: reset
+            font_size : root.width/20
+            text: 'Reset'
+            color: 0.3656,0.841,1,1
+            background_color: 0,0,0,1
+            size_hint: 0.25,0.1
+            pos_hint: {'x':0, 'y':0}
+            on_release: root.reset()
+
+
+        Button:
+            font_size : root.width/20
+            text: 'Solve'
+            color: 0.3656,0.841,1,1
+            background_color: 0,0,0,1
+            size_hint: 0.25,0.1
+            pos_hint: {'x':0.75, 'y':0}
+            on_press: root.solve()
+
+        Button:
+            font_size : root.width/20
+            text: 'Home'
+            color: 0.3656,0.841,1,1
+            background_color: 0,0,0,1
+            size_hint: 0.25,0.1
+            pos_hint: {'x':0.375, 'y':0}
+            on_release:
+                app.root.current = 'menu'
+                root.manager.transition.direction = 'right'
+
+
+
+
