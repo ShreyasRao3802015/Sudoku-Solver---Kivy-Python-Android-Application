@@ -50,27 +50,13 @@ Finally I have built the APK using <a href= 'https://buildozer.readthedocs.io/en
 
 <h2 id = 'credits'> Credits </h2>
 <p>
-<ul>
-  <li>I would like to thank my family for supporting my decision to pursue Data Science as career rather than sticking to my degree profession-Mechanical Engineer.</li>
-  
- <br>
-  
-  <li>Next I would like to thank Great Learning for giving quality (both theory and handson) education during the pandemic times. I am sure they had to go to great lengths to provide what was initially promised as an offline course in an online platform.
-  </li>
-    
- <br>
-  
-  <li>I thank <a href= 'https://www.linkedin.com/in/namrata-thukral-50550772/'>Namrata Thukral</a> who is a faculty at Great Learning for sparing time out of your busy schedule to review this project and providing valuable insights.
+<ul>  
+  <li>Since this is my first project using Python's Kivy Framework, I relied on <a href= 'https://www.youtube.com/channel/UCMMitT9SCbWlEcEkemnsxQg'>Eric Sandberg's YouTube Channel</a> to learn the ropes!
   </li>
  
  <br>
   
-  <li>Since this is my first Data Analysis project, I relied on <a href= 'https://www.kaggle.com/'>Kaggle</a> (needs no introduction in the Data Science realm) for acquiring the dataset. Thank you Kaggle for providing such a great platform for Data Science enthusiasts!
-  </li>
- 
- <br>
-  
-  <li>Finally I would like to mention Stack Overflow. I was able to solve Part 4) (What are the products that are most often sold together?) by understanding how itertools and counter libraries can be leveraged. To check out the Stack Overflow page click <a href= 'https://stackoverflow.com/questions/52195887/counting-unique-pairs-of-numbers-into-a-python-dictionary'>here</a>.
+  <li>I would also like to mention <a href= 'https://www.geeksforgeeks.org/backtracking-algorithms/'>GeeksForGeeks</a> referring which I understood how Back Tracking Algorithm can be leveraged in various situations.
   </li>
   
   </ul>
