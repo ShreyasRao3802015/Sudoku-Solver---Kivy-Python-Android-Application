@@ -14,8 +14,12 @@
 <h2 id = 'overview'> Overview </h2>
 <p>
 This project is an attempt to build an android application that helps the user to solve a sudoku puzzle. This application is build using the <a href= 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjyrKvyo5DtAhU1juYKHQrQBZkQFjAAegQIARAD&url=https%3A%2F%2Fkivy.org%2F&usg=AOvVaw2sQzH6hugoCP4InvINovCg'>Kivy</a> framework of python. It is a project that helped me actualize the OOP concepts, Back Tracking Algorithm and Kivy.
-Finally I have built the APK using <a href= 'https://buildozer.readthedocs.io/en/latest'/>Buildozer</a>. Following are a few snapshots that were taken from an android phone.
-1) 
+Finally I have built the APK using <a href= 'https://buildozer.readthedocs.io/en/latest'/>Buildozer</a>. Following are a few snapshots that were taken from an android phone.<br>
+1) Application Image :
+<p>
+    <img src="Images/1.jpg" width=750>
+</p>  
+
 </p>
 
 
