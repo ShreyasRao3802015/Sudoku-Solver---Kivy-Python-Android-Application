@@ -17,7 +17,7 @@ This project is an attempt to build an android application that helps the user t
 Finally I have built the APK using <a href= 'https://buildozer.readthedocs.io/en/latest'/>Buildozer</a>. Following are a few snapshots that were taken from an android phone.<br>
 1) Application Image :
 <p>
-    <img src="Images/1.jpg" width=450, height=200>
+    <img src="Images/1.jpg" width=200, height=450>
 </p>  
 
 </p>
