@@ -5,7 +5,6 @@
 <ul>
   <li><a href='#overview'>Overview</a></li>
   <li><a href='#motivation'>Motivation</a></li>
-  <li><a href='#analysis'>Analysis Highlights</a></li>
   <li><a href='#credits'>Credits</a></li>
   
 </ul> 
