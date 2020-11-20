@@ -24,7 +24,7 @@ Finally I have built the APK using <a href= 'https://buildozer.readthedocs.io/en
   <img src="Images/3.jpg" width=200, height=450>
 </p>  
 
-<h3>2) Let's Start! :</h3>
+<h3>4) Let's Start! :</h3>
 <p>
     <img src="Images/5.jpg" width=200, height=450>
  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp 
