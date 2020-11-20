@@ -39,9 +39,8 @@ Finally I have built the APK using <a href= 'https://buildozer.readthedocs.io/en
 
 <h2 id = 'motivation'> Motivation </h2>
 <p>
-I started pursuing Post Graduate Program in Data Science Engineering at Great Learning during the pandemic in 2020. After we had covered Numpy Pandas and Visualization using Matplotlib and Seaborn in September 2020, I realised that theory and labs don't have any impact as long as one doesnot have handson experience with real life messy data. So I decided to take on a dataset from kaggle and get my hands dirty! 
-<br><br>
-This particular category (sales dataset) caught my attention because my first clear understanding (or so I thought back then!) about what objectives that data science achieved came from an article by <a href= 'https://www.nytimes.com/2004/11/14/business/yourmoney/what-walmart-knows-about-customers-habits.html'>New York Times</a>. The idea that Data Science could find the pattern between a hurricane occurance and sale of strawberry Pop-Tarts increasing seven times was very overwhelming at the time! Little did I know this was just the tip of the iceberg.
+  I still remember those dreaded summer afternoons in my childhood when my father made me solve Sudoku. However, after solving about a score of these "mind-numbing" puzzles, Sudoku grew on me. Unknowingly, I had built my own algorithm that was intuitive to a human mind. <br>
+  When I had finished learning quite a bit about Python Programming, I was searching for Projects that would leverage all that I had learnt regarding OOP Concepts. I took on this project because of the apparent connection I had with Sudoku; even if it meant for me to learn a new framework - Kivy. I also learnt about the Back Tracking Algorithm and how it can save a lot of computational hassle.
 </p>
 
 
